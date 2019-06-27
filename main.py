@@ -6,6 +6,7 @@ import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 from model import MNIST_Model
 from tqdm import tqdm
+import matplotlib.pyplot as plt
 
 
 def runner(cfg, logger):
@@ -54,7 +55,7 @@ def runner(cfg, logger):
     #set the model in train mode
     model.train()
 
-    
+    loss_val_list = []
     for epoch in tqdm(range(cfg["hyperparameters"]["epochs"])):
         #for each epoch
         overall_loss = 0
@@ -91,6 +92,7 @@ def runner(cfg, logger):
             # break
         # break
         logger.debug(overall_loss)
+        loss_val_list.append(overall_loss)
 
 
 
@@ -98,6 +100,25 @@ def runner(cfg, logger):
     #validate
 
     #save if needed
+
+    #plot necessary graphs
+    fig, ax = plt.subplots()
+
+
+    x_axis = list(torch.arange(1, len(loss_val_list) + 1).numpy())
+    line1, = ax.plot(x_axis, loss_val_list , 
+                marker='o', 
+                color='b',
+                label='loss')
+
+    plt.xticks(x_axis)
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    ax.legend()
+    plt.show()
+    plt.savefig("epoch_vs_loss.png", dpi = 500)
+
+
 
 if __name__ == "__main__":
     
