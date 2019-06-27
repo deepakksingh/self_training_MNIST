@@ -42,14 +42,15 @@ def runner(cfg, logger):
     #declare the model
     model = MNIST_Model(num_of_input_channels = cfg["model_params"]["input_features"], num_of_output_channels = cfg["model_params"]["output_features"])
 
+    #move the model to processing unit
+    model.to(device)
+
     #choose an optimizer
     optimizer = torch.optim.SGD(model.parameters(), lr = cfg["hyperparameters"]["learning_rate"])
     
     #define the loss function
     loss_criterion = torch.nn.CrossEntropyLoss()
     
-    #train
-
     #set the model in train mode
     model.train()
 
@@ -74,11 +75,13 @@ def runner(cfg, logger):
             # print(ground_truth_labels)
             # print(predicted_labels)
 
+            predicted_labels.to(device)
+
             #find the loss
             loss = loss_criterion(predicted_labels, ground_truth_labels)
 
             # logger.debug(loss.item())
-            overall_loss += loss.item()
+            overall_loss += loss.cpu().item()
             #back-propagation
             loss.backward()
 
