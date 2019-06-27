@@ -1,13 +1,13 @@
 model_params:
-  input_features:
-  output_features: 10
+  input_features: 784 #MNIST dataset sample size (28 x 28)
+  output_features: 10 # 10 digits
   to_validate: True
   batch_size: 100
   keywithseqvals : [1,2,3,hello,"deepak"]
   boolFlag: False
 
 hyperparameters:
-  learning_rate: 0.0001
+  learning_rate: 0.001
   epochs: 1000
 
 project_params:

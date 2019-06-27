@@ -1,7 +1,11 @@
-INFO:main.py:config content below at line 12
-INFO:main.py:{'model_params': {'input_features': None, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.0001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 13
-INFO:main.py:loading MNIST dataset at line 24
-INFO:main.py:loaded MNIST dataset at line 28
-INFO:main.py:preparing data loader at line 31
-INFO:main.py:prepared data loader at line 34
-INFO:main.py:processing on: cpu at line 38
+INFO:main.py:config content below at line 14
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 15
+INFO:main.py:loading MNIST dataset at line 26
+INFO:main.py:loaded MNIST dataset at line 30
+INFO:main.py:preparing data loader at line 33
+INFO:main.py:prepared data loader at line 36
+INFO:main.py:processing on: cpu at line 40
+DEBUG:main.py:1383.5548918247223 at line 90
+DEBUG:main.py:1383.0075206756592 at line 90
+DEBUG:main.py:1382.4985466003418 at line 90
+DEBUG:main.py:1382.0350179672241 at line 90

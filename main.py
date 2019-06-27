@@ -4,6 +4,8 @@ from configReader import *
 import torch
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
+from model import MNIST_Model
+from tqdm import tqdm
 
 
 def runner(cfg, logger):
@@ -16,7 +18,7 @@ def runner(cfg, logger):
     transform = transforms.Compose(
         [
             transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5),(0.5, 0.5, 0.5))
+            #transforms.Normalize((0.5),(0.5))
         
         ]
     )
@@ -37,6 +39,59 @@ def runner(cfg, logger):
     processing_on = "cuda" if torch.cuda.is_available() else "cpu"
     logger.info("processing on: " + processing_on)
     
+    #declare the model
+    model = MNIST_Model(num_of_input_channels = cfg["model_params"]["input_features"], num_of_output_channels = cfg["model_params"]["output_features"])
+
+    #choose an optimizer
+    optimizer = torch.optim.SGD(model.parameters(), lr = cfg["hyperparameters"]["learning_rate"])
+    
+    #define the loss function
+    loss_criterion = torch.nn.CrossEntropyLoss()
+    
+    #train
+
+    #set the model in train mode
+    model.train()
+
+    
+    for epoch in tqdm(range(cfg["hyperparameters"]["epochs"])):
+        #for each epoch
+        overall_loss = 0
+        for input, ground_truth_labels in tqdm(train_loader):
+            #for each batch 
+            input = input.to(device)
+            ground_truth_labels = ground_truth_labels.to(device)
+
+            input = torch.reshape(input, (cfg["model_params"]["batch_size"],-1))
+            # print(input.size())
+            
+            #clear the gradient so they do not accumulate
+            optimizer.zero_grad()
+
+            predicted_labels = model(input)
+            # print(predicted_labels.size())
+            # print(ground_truth_labels.size())
+            # print(ground_truth_labels)
+            # print(predicted_labels)
+
+            #find the loss
+            loss = loss_criterion(predicted_labels, ground_truth_labels)
+
+            # logger.debug(loss.item())
+            overall_loss += loss.item()
+            #back-propagation
+            loss.backward()
+
+            #optimization step (descent step)
+            optimizer.step()
+            
+            # break
+        # break
+        logger.debug(overall_loss)
+
+
+
+
     #validate
 
     #save if needed
