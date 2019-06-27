@@ -107,8 +107,7 @@ def runner(cfg, logger):
 
     x_axis = list(torch.arange(1, len(loss_val_list) + 1).numpy())
     line1, = ax.plot(x_axis, loss_val_list , 
-                marker='o', 
-                color='b',
+                color='r',
                 label='loss')
 
     plt.xticks(x_axis)

@@ -8,7 +8,7 @@ model_params:
 
 hyperparameters:
   learning_rate: 0.001
-  epochs: 100
+  epochs: 1000
 
 project_params:
   model_save_location:
