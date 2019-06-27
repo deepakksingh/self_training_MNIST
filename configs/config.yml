@@ -1,0 +1,15 @@
+modelparameters:
+  batch_size: 100
+  keywithseqvals : [1,2,3,hello,"deepak"]
+  boolFlag: False
+
+hyperparameters:
+  learning_rate: 0.0001
+  epochs: 1000
+
+
+logging:
+  filename: self_training_mnist.log #optional and defaults to log.log
+  level: "DEBUG" #optional and defaults to DEBUG
+  format: "%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
+  #format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
