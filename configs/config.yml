@@ -1,4 +1,7 @@
-modelparameters:
+model_params:
+  input_features:
+  output_features: 10
+  to_validate: True
   batch_size: 100
   keywithseqvals : [1,2,3,hello,"deepak"]
   boolFlag: False
@@ -7,6 +10,9 @@ hyperparameters:
   learning_rate: 0.0001
   epochs: 1000
 
+project_params:
+  model_save_location:
+  
 
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
