@@ -6,6 +6,7 @@ from configReader import *
 def runner(cfg, logger):
     '''contains code to train, validate and test on MNIST dataset'''
     print(cfg)
+    logger.info(cfg)
 
 if __name__ == "__main__":
     
@@ -26,6 +27,4 @@ if __name__ == "__main__":
     log_config = cfg["logging"]
     log_root_obj = CustomLogger(log_config)
     logger = log_root_obj.getLogger()
-    
-    
     runner(cfg,logger)
