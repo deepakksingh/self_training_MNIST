@@ -105,7 +105,7 @@ def runner(cfg, logger):
 
     #validate
 
-    #save if needed
+    #save the model if needed
 
     #plot necessary graphs
     fig, ax = plt.subplots()
