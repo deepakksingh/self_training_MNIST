@@ -2218,3 +2218,42 @@ DEBUG:_base.py:update_title_pos at line 2515
 DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/dksingh/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
 DEBUG:_base.py:update_title_pos at line 2515
 DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 10}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cuda at line 47
+DEBUG:main.py:1382.4113140106201 at line 100
+DEBUG:main.py:1382.2378661632538 at line 100
+DEBUG:main.py:1382.0873186588287 at line 100
+DEBUG:main.py:1381.9557085037231 at line 100
+DEBUG:main.py:1381.8405249118805 at line 100
+DEBUG:main.py:1381.7390127182007 at line 100
+DEBUG:main.py:1381.649470090866 at line 100
+DEBUG:main.py:1381.5701744556427 at line 100
+DEBUG:main.py:1381.4997744560242 at line 100
+DEBUG:main.py:1381.4460124969482 at line 100
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/dksingh/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 10}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cuda at line 47
+DEBUG:main.py:1385.8997511863708 at line 100
+DEBUG:main.py:1385.1723999977112 at line 100
+DEBUG:main.py:1384.563824892044 at line 100
+DEBUG:main.py:1384.046885728836 at line 100
+DEBUG:main.py:1383.5909678936005 at line 100
+DEBUG:main.py:1383.1847574710846 at line 100
+DEBUG:main.py:1382.8156378269196 at line 100
+DEBUG:main.py:1382.4620718955994 at line 100
+DEBUG:main.py:1382.0705263614655 at line 100
+DEBUG:main.py:1381.6721680164337 at line 100
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/dksingh/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
