@@ -82,32 +82,10 @@ def runner(cfg, logger):
 
             predicted_labels = model(input)
 
-            # print("predicted labels size:", predicted_labels.size())
-
-            # max_predicted_labels = torch.argmax(predicted_labels, dim = 1, keepdim = True)
-            # max_predicted_labels = max_predicted_labels.float()
-            # max_predicted_labels = max_predicted_labels + 1
-
-            # print("max predicted labels = ", max_predicted_labels)
-            # print(max_predicted_labels.size())
-
-
-            # print(type(max_predicted_labels))
-            # print(predicted_labels)
-            # print(predicted_labels.size())
-            # print(ground_truth_labels)
-            # print(ground_truth_labels.size())
-            
-
-            # predicted_labels.to(device)
-            # max_predicted_labels.to(device)
-
-            #find the loss
-            # loss = loss_criterion(predicted_labels, ground_truth_labels)
             loss = loss_criterion(predicted_labels, ground_truth_labels)
             
             # logger.debug(loss.item())
-            overall_loss += loss.cpu().item()
+            overall_loss += float(loss.cpu().item())
             #back-propagation
             loss.backward()
 
@@ -141,8 +119,8 @@ def runner(cfg, logger):
 
             accuracy = accuracy_score(ground_truth_labels, max_predicted_labels)
             accuracy_total += accuracy
-            #TODO: remove the following break statement and add evaluation metrics from scikit-learn
-            break
+            
+            # break
         accuracy_avg = accuracy_total / (len(test_loader)/cfg["model_params"]["batch_size"])
         logger.info("average_accuracy: " + str(accuracy_avg))
 

@@ -2672,3 +2672,12 @@ INFO:main.py:average_accuracy: 0.17
 DEBUG:_base.py:update_title_pos
 DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
 DEBUG:_base.py:update_title_pos
+INFO:main.py:config content below
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.01, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s'}}
+INFO:main.py:loading MNIST dataset
+INFO:main.py:loaded MNIST dataset
+INFO:main.py:preparing data loader
+INFO:main.py:prepared data loader
+INFO:main.py:processing on: cpu
+DEBUG:main.py:1383.4345462322235
+DEBUG:main.py:1381.840614080429
