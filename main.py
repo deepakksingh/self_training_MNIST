@@ -39,8 +39,8 @@ def runner(cfg, logger):
 
     #prepare the data loader
     logger.info("preparing data loader")
-    train_loader = torch.utils.data.DataLoader(train_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 8)
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 8)
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 4)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 4)
     logger.info("prepared data loader")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
