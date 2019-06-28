@@ -2,13 +2,13 @@ model_params:
   input_features: 784 #MNIST dataset sample size (28 x 28)
   output_features: 10 # 10 digits
   to_validate: True
-  batch_size: 250
+  batch_size: 200
   keywithseqvals : [1,2,3,hello,"deepak"]
   boolFlag: False
 
 hyperparameters:
   learning_rate: 0.01
-  epochs: 500
+  epochs: 1000
 
 project_params:
   model_save_location:
@@ -17,5 +17,6 @@ project_params:
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG
-  format: "%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
+  format: "%(levelname)s:%(filename)s:%(message)s"
+  #format: "%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
   #format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"

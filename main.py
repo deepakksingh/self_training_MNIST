@@ -7,6 +7,7 @@ import torchvision.transforms as transforms
 from model import MNIST_Model
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+from sklearn.metrics import accuracy_score
 
 '''
 TODO:   
@@ -117,6 +118,34 @@ def runner(cfg, logger):
         # break
         logger.debug(overall_loss)
         loss_val_list.append(overall_loss)
+
+    #testing mode
+    
+    # move the model to evaluation mode to avoid backprop
+    model.eval()
+    with torch.no_grad():
+        accuracy_total = 0
+        for input, ground_truth_labels in tqdm(test_loader):
+            #for each batch 
+            input = input.to(device)
+            ground_truth_labels = ground_truth_labels.to(device)
+
+            input = torch.reshape(input, (cfg["model_params"]["batch_size"],-1))
+            # print(input.size())
+            
+            predicted_labels = model(input)
+
+            max_predicted_labels = torch.argmax(predicted_labels, dim = 1, keepdim = True)
+            print("max:", max_predicted_labels)
+            print("gt:", ground_truth_labels)
+
+            accuracy = accuracy_score(ground_truth_labels, max_predicted_labels)
+            accuracy_total += accuracy
+            #TODO: remove the following break statement and add evaluation metrics from scikit-learn
+            break
+        accuracy_avg = accuracy_total / (len(test_loader)/cfg["model_params"]["batch_size"])
+        logger.info("average_accuracy: " + str(accuracy_avg))
+
 
 
 
