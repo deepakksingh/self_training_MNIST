@@ -18,6 +18,6 @@ source activate dev
 echo "dev conda environment activated"
 
 #training
-echo "tranining begins"
+echo "training begins"
 python main.py --config ./configs/config.yml
 echo "training ends"
