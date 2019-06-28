@@ -120,7 +120,7 @@ def runner(cfg, logger):
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
     ax.legend()
-    plt.show()
+    plt.plot()
     plt.savefig("epoch_vs_loss.png")
 
 
