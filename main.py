@@ -114,10 +114,10 @@ def runner(cfg, logger):
             predicted_labels = model(input)
 
             max_predicted_labels = torch.argmax(predicted_labels, dim = 1, keepdim = True)
-            print("max:", max_predicted_labels)
-            print("gt:", ground_truth_labels)
+            # print("max:", max_predicted_labels)
+            # print("gt:", ground_truth_labels)
 
-            accuracy = accuracy_score(ground_truth_labels, max_predicted_labels)
+            accuracy = accuracy_score(ground_truth_labels.cpu(), max_predicted_labels.cpu())
             accuracy_total += accuracy
             
             # break
