@@ -2,7 +2,7 @@ model_params:
   input_features: 784 #MNIST dataset sample size (28 x 28)
   output_features: 10 # 10 digits
   to_validate: True
-  batch_size: 100
+  batch_size: 200
   keywithseqvals : [1,2,3,hello,"deepak"]
   boolFlag: False
 
@@ -11,7 +11,8 @@ hyperparameters:
   epochs: 1000
 
 project_params:
-  model_save_location:
+  to_save_model: True
+  model_save_location: "./saved_model.pth"
   
 
 logging:

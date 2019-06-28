@@ -18,3 +18,24 @@ INFO:main.py:average_accuracy: 11.299999999999999
 DEBUG:_base.py:update_title_pos
 DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
 DEBUG:_base.py:update_title_pos
+INFO:main.py:config content below
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 200, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.01, 'epochs': 1}, 'project_params': {'to_save_model': True, 'model_save_location': './'}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s'}}
+INFO:main.py:loading MNIST dataset
+INFO:main.py:loaded MNIST dataset
+INFO:main.py:preparing data loader
+INFO:main.py:prepared data loader
+INFO:main.py:processing on: cpu
+DEBUG:main.py:691.9684274196625
+INFO:main.py:average_accuracy: 19.6
+INFO:main.py:config content below
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 200, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.01, 'epochs': 1}, 'project_params': {'to_save_model': True, 'model_save_location': './saved_model.pth'}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s'}}
+INFO:main.py:loading MNIST dataset
+INFO:main.py:loaded MNIST dataset
+INFO:main.py:preparing data loader
+INFO:main.py:prepared data loader
+INFO:main.py:processing on: cpu
+DEBUG:main.py:691.691294670105
+INFO:main.py:average_accuracy: 20.560000000000006
+DEBUG:_base.py:update_title_pos
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+DEBUG:_base.py:update_title_pos
