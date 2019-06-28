@@ -1,7 +1,7 @@
 import logging
 
 class CustomLogger():
-    """A custom logger class"""
+    """A custom logger class with its necessary utility methods"""
 
     def __init__(self,cfgFile):
 
@@ -27,7 +27,7 @@ class CustomLogger():
         return customLogger
 
     def disableLogging(self):
-        """disables logging levels from CRITICAL to below levels, basically turns off logging"""
+        """disables logging levels from CRITICAL to below levels, this basically turns off logging"""
         logging.disable(logging.CRITICAL)
 
     def reEnableLogging(self):

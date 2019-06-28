@@ -8,7 +8,13 @@ from model import MNIST_Model
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 
-
+'''
+TODO:   
+        add validation code
+        check for overfitting
+        test on testing data
+        add self-training wrapper
+'''
 def runner(cfg, logger):
     '''contains code to train, validate and test on MNIST dataset'''
 
