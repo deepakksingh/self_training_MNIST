@@ -121,7 +121,7 @@ def runner(cfg, logger):
     plt.ylabel("Loss")
     ax.legend()
     plt.show()
-    plt.savefig("epoch_vs_loss.png", dpi = 500)
+    plt.savefig("epoch_vs_loss.png")
 
 
 
