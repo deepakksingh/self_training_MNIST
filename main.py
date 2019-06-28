@@ -38,8 +38,8 @@ def runner(cfg, logger):
 
     #prepare the data loader
     logger.info("preparing data loader")
-    train_loader = torch.utils.data.DataLoader(train_set, batch_size = 100, shuffle = True, num_workers = 4)
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size = 100, shuffle = True, num_workers = 4)
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 8)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 8)
     logger.info("prepared data loader")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -68,7 +68,10 @@ def runner(cfg, logger):
         for input, ground_truth_labels in tqdm(train_loader):
             #for each batch 
             input = input.to(device)
+
+            # ground_truth_labels = ground_truth_labels.float()
             ground_truth_labels = ground_truth_labels.to(device)
+            # ground_truth_labels = ground_truth_labels + 1
 
             input = torch.reshape(input, (cfg["model_params"]["batch_size"],-1))
             # print(input.size())
@@ -77,16 +80,31 @@ def runner(cfg, logger):
             optimizer.zero_grad()
 
             predicted_labels = model(input)
-            # print(predicted_labels.size())
-            # print(ground_truth_labels.size())
-            # print(ground_truth_labels)
-            # print(predicted_labels)
 
-            predicted_labels.to(device)
+            # print("predicted labels size:", predicted_labels.size())
+
+            # max_predicted_labels = torch.argmax(predicted_labels, dim = 1, keepdim = True)
+            # max_predicted_labels = max_predicted_labels.float()
+            # max_predicted_labels = max_predicted_labels + 1
+
+            # print("max predicted labels = ", max_predicted_labels)
+            # print(max_predicted_labels.size())
+
+
+            # print(type(max_predicted_labels))
+            # print(predicted_labels)
+            # print(predicted_labels.size())
+            # print(ground_truth_labels)
+            # print(ground_truth_labels.size())
+            
+
+            # predicted_labels.to(device)
+            # max_predicted_labels.to(device)
 
             #find the loss
+            # loss = loss_criterion(predicted_labels, ground_truth_labels)
             loss = loss_criterion(predicted_labels, ground_truth_labels)
-
+            
             # logger.debug(loss.item())
             overall_loss += loss.cpu().item()
             #back-propagation

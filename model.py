@@ -20,6 +20,7 @@ class MNIST_Model(nn.Module):
         self.l5 = nn.Linear(in_features = 20, out_features = self.num_of_output_channels, bias = True)
 
         self.relu = nn.ReLU()
+        self.softmax = nn.Softmax(dim = 1)
 
     def forward(self, x):
         '''define forward propagation'''
@@ -28,6 +29,7 @@ class MNIST_Model(nn.Module):
         x = self.relu(self.l3(x))
         x = self.relu(self.l4(x))
         x = self.relu(self.l5(x))
+        # x = self.softmax(x)
         
         return x
 

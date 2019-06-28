@@ -2257,3 +2257,327 @@ DEBUG:main.py:1381.6721680164337 at line 100
 DEBUG:_base.py:update_title_pos at line 2515
 DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/dksingh/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
 DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 2, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 2, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 100, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 10, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 10, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 10, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 1, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 1, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 1, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 1000}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 1, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 1, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 21
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 22
+INFO:main.py:loading MNIST dataset at line 33
+INFO:main.py:loaded MNIST dataset at line 37
+INFO:main.py:preparing data loader at line 40
+INFO:main.py:prepared data loader at line 43
+INFO:main.py:processing on: cpu at line 47
+INFO:main.py:config content below at line 22
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 23
+INFO:main.py:loading MNIST dataset at line 34
+INFO:main.py:loaded MNIST dataset at line 38
+INFO:main.py:preparing data loader at line 41
+INFO:main.py:prepared data loader at line 44
+INFO:main.py:processing on: cpu at line 48
+INFO:main.py:config content below at line 22
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 100}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 23
+INFO:main.py:loading MNIST dataset at line 34
+INFO:main.py:loaded MNIST dataset at line 38
+INFO:main.py:preparing data loader at line 41
+INFO:main.py:prepared data loader at line 44
+INFO:main.py:processing on: cpu at line 48
+INFO:main.py:config content below at line 22
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.001, 'epochs': 10}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 23
+INFO:main.py:loading MNIST dataset at line 34
+INFO:main.py:loaded MNIST dataset at line 38
+INFO:main.py:preparing data loader at line 41
+INFO:main.py:prepared data loader at line 44
+INFO:main.py:processing on: cpu at line 48
+DEBUG:main.py:6911.616327047348 at line 119
+DEBUG:main.py:6902.877198457718 at line 119
+DEBUG:main.py:6894.390282869339 at line 119
+DEBUG:main.py:6880.789044857025 at line 119
+DEBUG:main.py:6849.515797138214 at line 119
+DEBUG:main.py:6783.266511678696 at line 119
+DEBUG:main.py:6636.185713529587 at line 119
+DEBUG:main.py:6299.481845021248 at line 119
+DEBUG:main.py:5792.928537726402 at line 119
+DEBUG:main.py:5077.158469676971 at line 119
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
+INFO:main.py:config content below at line 22
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 20, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.01, 'epochs': 10}, 'project_params': {'model_save_location': None}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s at line %(lineno)s'}} at line 23
+INFO:main.py:loading MNIST dataset at line 34
+INFO:main.py:loaded MNIST dataset at line 38
+INFO:main.py:preparing data loader at line 41
+INFO:main.py:prepared data loader at line 44
+INFO:main.py:processing on: cpu at line 48
+DEBUG:main.py:6256.548751175404 at line 119
+DEBUG:main.py:4201.0082812309265 at line 119
+DEBUG:main.py:3528.1260625720024 at line 119
+DEBUG:main.py:3053.4148267507553 at line 119
+DEBUG:main.py:2844.2056165486574 at line 119
+DEBUG:main.py:2715.164978340268 at line 119
+DEBUG:main.py:2646.834745518863 at line 119
+DEBUG:main.py:2602.99594733119 at line 119
+DEBUG:main.py:2576.2164281979203 at line 119
+DEBUG:main.py:2554.1201615817845 at line 119
+DEBUG:_base.py:update_title_pos at line 2515
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000. at line 1254
+DEBUG:_base.py:update_title_pos at line 2515
