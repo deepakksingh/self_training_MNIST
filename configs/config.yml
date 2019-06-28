@@ -11,7 +11,8 @@ hyperparameters:
   epochs: 1000
 
 project_params:
-  model_save_location:
+  to_save_model: True
+  model_save_location: "./saved_model.pth"
   
 
 logging:

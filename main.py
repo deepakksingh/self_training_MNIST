@@ -121,21 +121,20 @@ def runner(cfg, logger):
             accuracy_total += accuracy
             
             # break
+        #TODO: fix accuracy calculation, it's showing 169.299 as average accuracy
         accuracy_avg = accuracy_total / (len(test_loader)/cfg["model_params"]["batch_size"])
         logger.info("average_accuracy: " + str(accuracy_avg))
 
 
 
 
-
-    #validate
-
     #save the model if needed
+    if cfg["project_params"]["to_save_model"]:
+        torch.save(model.state_dict, cfg["project_params"]["model_save_location"])
+
 
     #plot necessary graphs
     fig, ax = plt.subplots()
-
-
     x_axis = list(torch.arange(1, len(loss_val_list) + 1).numpy())
     line1, = ax.plot(x_axis, loss_val_list , 
                 color='r',
