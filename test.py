@@ -25,11 +25,12 @@ def tester(cfg, logger):
 
         #check for available processing unit
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        processing_on = "cuda" if torch.cuda.is_available() else "cpu"
         logger.info("processing on: " + str(device))
 
         #load the saved model and move it to the processing unit
         model = MNIST_Model(num_of_input_channels = cfg["model_params"]["input_features"], num_of_output_channels = cfg["model_params"]["output_features"])
-        model.load_state_dict(torch.load(cfg["project_params"]["model_save_location"]))
+        model.load_state_dict(torch.load(cfg["project_params"]["model_save_location"], map_location = processing_on))
         model.to(device)
 
         #specify transformations
@@ -45,7 +46,7 @@ def tester(cfg, logger):
         test_set = datasets.MNIST('./data', train = False, download = True, transform = transform)
         logger.info("loaded MNIST test dataset")
 
-        test_loader = torch.utils.data.DataLoader(test_set, batch_size = cfg["model_params"]["batch_size"], shuffle = True, num_workers = 4)
+        test_loader = torch.utils.data.DataLoader(test_set, batch_size = 1, shuffle = True, num_workers = 4)
         logger.info("prepared test data loader")
 
         #move the model to eval mode
@@ -58,7 +59,7 @@ def tester(cfg, logger):
                 input = input.to(device)
                 ground_truth_labels = ground_truth_labels.to(device)
 
-                input = torch.reshape(input, (cfg["model_params"]["batch_size"],-1))
+                input = torch.reshape(input, (1,-1))
                 # print(input.size())
                 
                 predicted_labels = model(input)
@@ -71,8 +72,7 @@ def tester(cfg, logger):
                 accuracy_total += accuracy
                 
                 # break
-            #TODO: fix accuracy calculation, it's showing 169.299 as average accuracy
-            accuracy_avg = accuracy_total / (len(test_loader)/cfg["model_params"]["batch_size"])
+            accuracy_avg = accuracy_total / (len(test_loader))
             logger.info("average_accuracy: " + str(accuracy_avg))
 
 

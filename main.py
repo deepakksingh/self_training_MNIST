@@ -114,7 +114,7 @@ def runner(cfg, logger):
     ax.legend()
     plt.plot()
     plt.savefig("epoch_vs_loss.png")
-
+    logger.info("saved the epoch_vs_loss image")
 
 
 if __name__ == "__main__":

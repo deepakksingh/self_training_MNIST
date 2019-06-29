@@ -18,6 +18,6 @@ project_params:
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG
-  format: "%(levelname)s:%(filename)s:%(message)s"
+  format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s"
   #format: "%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
   #format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
