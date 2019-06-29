@@ -7,7 +7,6 @@ import torchvision.transforms as transforms
 from model import MNIST_Model
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score
 
 '''
 TODO:   
@@ -97,40 +96,9 @@ def runner(cfg, logger):
         logger.debug(overall_loss)
         loss_val_list.append(overall_loss)
 
-    #testing mode
-    
-    # move the model to evaluation mode to avoid backprop
-    model.eval()
-    with torch.no_grad():
-        accuracy_total = 0
-        for input, ground_truth_labels in tqdm(test_loader):
-            #for each batch 
-            input = input.to(device)
-            ground_truth_labels = ground_truth_labels.to(device)
-
-            input = torch.reshape(input, (cfg["model_params"]["batch_size"],-1))
-            # print(input.size())
-            
-            predicted_labels = model(input)
-
-            max_predicted_labels = torch.argmax(predicted_labels, dim = 1, keepdim = True)
-            # print("max:", max_predicted_labels)
-            # print("gt:", ground_truth_labels)
-
-            accuracy = accuracy_score(ground_truth_labels.cpu(), max_predicted_labels.cpu())
-            accuracy_total += accuracy
-            
-            # break
-        #TODO: fix accuracy calculation, it's showing 169.299 as average accuracy
-        accuracy_avg = accuracy_total / (len(test_loader)/cfg["model_params"]["batch_size"])
-        logger.info("average_accuracy: " + str(accuracy_avg))
-
-
-
-
     #save the model if needed
     if cfg["project_params"]["to_save_model"]:
-        torch.save(model.state_dict, cfg["project_params"]["model_save_location"])
+        torch.save(model.state_dict(), cfg["project_params"]["model_save_location"])
 
 
     #plot necessary graphs

@@ -7,8 +7,8 @@ model_params:
   boolFlag: False
 
 hyperparameters:
-  learning_rate: 0.01
-  epochs: 1000
+  learning_rate: 0.005
+  epochs: 500
 
 project_params:
   to_save_model: True
