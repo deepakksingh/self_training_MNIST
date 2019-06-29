@@ -1050,3 +1050,35 @@ DEBUG:_base.py:update_title_pos
 DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
 >>>>>>> 237d0f8caa448e71e26ae964f08d44fa04f4874c
 DEBUG:_base.py:update_title_pos
+INFO:test.py:testing module started
+INFO:test.py:processing on: cpu
+INFO:test.py:using the saved model for testing
+INFO:test.py:testing module started
+INFO:test.py:processing on: cpu
+INFO:test.py:using the saved model for testing
+INFO:main.py:config content below
+INFO:main.py:{'model_params': {'input_features': 784, 'output_features': 10, 'to_validate': True, 'batch_size': 200, 'keywithseqvals': [1, 2, 3, 'hello', 'deepak'], 'boolFlag': False}, 'hyperparameters': {'learning_rate': 0.01, 'epochs': 10}, 'project_params': {'to_save_model': True, 'model_save_location': './saved_model.pth'}, 'logging': {'filename': 'self_training_mnist.log', 'level': 'DEBUG', 'format': '%(levelname)s:%(filename)s:%(message)s'}}
+INFO:main.py:loading MNIST dataset
+INFO:main.py:loaded MNIST dataset
+INFO:main.py:preparing data loader
+INFO:main.py:prepared data loader
+INFO:main.py:processing on: cpu
+DEBUG:main.py:691.7687683105469
+DEBUG:main.py:691.1387553215027
+DEBUG:main.py:690.7402060031891
+DEBUG:main.py:690.4990661144257
+DEBUG:main.py:690.2799687385559
+DEBUG:main.py:690.0240726470947
+DEBUG:main.py:689.6867823600769
+DEBUG:main.py:689.1972715854645
+DEBUG:main.py:688.3747146129608
+DEBUG:main.py:686.6029579639435
+DEBUG:_base.py:update_title_pos
+DEBUG:font_manager.py:findfont: Matching :family=sans-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/deepak/anaconda3/envs/dev/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+DEBUG:_base.py:update_title_pos
+INFO:test.py:testing module started
+INFO:test.py:using the saved model for testing
+INFO:test.py:processing on: cpu
+INFO:test.py:loaded MNIST test dataset
+INFO:test.py:prepared test data loader
+INFO:test.py:average_accuracy: 36.88
