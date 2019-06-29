@@ -21,3 +21,9 @@ echo "dev conda environment activated"
 echo "training begins"
 python main.py --config ./configs/config.yml
 echo "training ends"
+
+#testing
+echo "testing begins"
+python test.py --config ./configs/config.yml
+echo "testing ends"
+echo "check logs for details"
