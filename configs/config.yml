@@ -13,7 +13,10 @@ hyperparameters:
 project_params:
   to_save_model: True
   model_save_location: "./saved_model.pth"
-  
+
+self_train:
+  batch_size: 1000
+
 
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
