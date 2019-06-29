@@ -3,12 +3,15 @@ model_params:
   output_features: 10 # 10 digits
   to_validate: True
   batch_size: 200
+  train_batch_size: 200
+  val_batch_size: 1
+  test_batch_size: 1
   keywithseqvals : [1,2,3,hello,"deepak"]
   boolFlag: False
 
 hyperparameters:
   learning_rate: 0.005
-  epochs: 500
+  epochs: 5
 
 project_params:
   to_save_model: True
@@ -16,8 +19,7 @@ project_params:
 
 self_train:
   batch_size: 1000
-
-
+  train_split : 0.2
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG

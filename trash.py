@@ -26,7 +26,7 @@ if __name__ == "__main__":
     train_set, val_set = torch.utils.data.random_split(initial_train_set, (needed_train_set_size, needed_val_set_size))
     # train_set, val_set = Dataset(train_set), Dataset(val_set)
 
-    print(train_set.dataset.__dict__.keys())
+    
     print((train_set.dataset))
     print(train_set.dataset.data.size())
     print(train_set.dataset.targets)
@@ -35,3 +35,5 @@ if __name__ == "__main__":
     print(val_set.dataset.data.size())
     print(val_set.dataset.targets)
 
+    train_loader = torch.utils.data.DataLoader(val_set, batch_size = 100, shuffle = True, num_workers = 4)
+    print(len(val_set))
