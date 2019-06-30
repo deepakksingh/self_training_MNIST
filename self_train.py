@@ -129,7 +129,7 @@ def self_train(cfg, logger):
                 
                 # break
             # break
-            logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : train_epoch: {train_epoch + 1} : loss: {overall_train_batch_loss}")
+            # logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : train_epoch: {train_epoch + 1} : loss: {overall_train_batch_loss}")
             train_loss_value_list.append(overall_train_batch_loss)
 
         #save the model
@@ -164,7 +164,7 @@ def self_train(cfg, logger):
                 # break
             accuracy_avg = accuracy_total / (len(test_loader))
             self_train_running_test_acc.append(accuracy_avg)
-            logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : average_accuracy: {accuracy_avg}")
+            # logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : average_accuracy: {accuracy_avg}")
 
 
         #validate the model on val_set and choose cfg["self_train"]["batch_size"] images from it and
@@ -238,14 +238,14 @@ def get_sample_indices(argdict, cfg, logger):
     elif cfg["self_train"]["loss_val_order"] == "random":
         logger.info(f"choosing the loss values in random order")
         #get the keys, here the keys are the loss values
-        keys_to_permute = argdict.keys()
-        keys_to_permute = list(keys_to_permute)
+        permute_keys = argdict.keys()
+        permute_keys = list(permute_keys)
 
         #randomly permute the keys
-        permuted_keys = np.random.shuffle(keys_to_permute)
+        np.random.shuffle(permute_keys)
 
         #choose batch_size of indices
-        indices = [argdict[key] for key in permuted_keys[0 : cfg["self_train"]["batch_size"]]]
+        indices = [argdict[key] for key in permute_keys[0 : cfg["self_train"]["batch_size"]]]
         
         return indices
 
