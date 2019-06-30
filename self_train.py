@@ -8,6 +8,7 @@ from model import MNIST_Model
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
+import numpy as np
 
 '''
 TODO:
@@ -46,9 +47,9 @@ def self_train(cfg, logger):
     logger.info(f"dataset split")
 
     
-    logger.info(f"train set size: {len(train_set)}")
-    logger.info(f"val set size: {len(val_set)}")
-    logger.info(f"test set size: {len(test_set)}")
+    logger.info(f"initial train set size: {len(train_set)}")
+    logger.info(f"initial val set size: {len(val_set)}")
+    logger.info(f"initial test set size: {len(test_set)}")
 
 
     #prepare the data loader
@@ -88,6 +89,8 @@ def self_train(cfg, logger):
         for train_epoch in tqdm(range(cfg["hyperparameters"]["epochs"])):
             #for each epoch
             overall_train_batch_loss = 0
+
+            logger.info(f"current train_set size: {len(train_set)}")
             for input, ground_truth_labels in tqdm(train_loader):
                 #for each batch 
                 input = input.to(device)
@@ -129,6 +132,8 @@ def self_train(cfg, logger):
         with torch.no_grad():
             self_train_running_test_acc = []
             accuracy_total = 0
+
+            logger.info(f"current test_set size: {len(test_set)}")
             for input, ground_truth_labels in tqdm(test_loader):
                 #for each batch 
                 input = input.to(device)
@@ -156,10 +161,80 @@ def self_train(cfg, logger):
         #move it to train_set by keeping the prediction as groundtruth label in the train_set
         model.eval()
         with torch.no_grad():
-            pass
-            #TODO: ADD validation code and movement of data to train_set
-    
+            logger.info(f"current val_set size: {len(val_set)}")
+            validation_loss_val_list = []
+            validation_loss_val_dict = {}
+            #test on each validation image
+            for input, ground_truth_labels in tqdm(val_loader):
+                input = input.to(device)
+                ground_truth_labels = ground_truth_labels.to(device)
+
+                input = torch.reshape(input, (1, -1))
+
+                predicted_labels = model(input)
+                max_predicted_labels = torch.argmax(predicted_labels, dim = 1, keepdim = True)
+                
+                #find the loss
+                loss = loss_criterion(predicted_labels, ground_truth_labels)
+                
+                #save the loss value
+                validation_loss_val = float(loss.cpu().item())
+                validation_loss_val_list.append(validation_loss_val)
+            
+            #sort the loss value and pick cfg["self_train"]["batch_size"] features along with their predictions
+            for idx, val in enumerate(validation_loss_val_list):
+                validation_loss_val_dict[val] = idx
+            
+            #get the indices which needs to be moved
+            chosen_indices = get_sample_indices(validation_loss_val_dict, cfg, logger)
+
+            #augment the train_set with chosen instances of the val_set
+            subset = torch.utils.data.Subset(val_set,chosen_indices)
+            train_set = torch.utils.data.ConcatDataset((train_set, subset))
+
     #ending self-training loop
+
+
+def get_sample_indices(argdict, cfg, logger):
+    if cfg["self_train"]["loss_val_order"] is "ascending":
+        logger.info(f"choosing the loss values in ascending order")
+        #get the keys, here the keys are the loss values
+        keys_to_sort = argdict.keys()
+
+        #sort the keys in ascending order
+        sorted_keys = sorted(keys_to_sort)
+
+        #choose batch_size of indices
+        indices = [argdict[key] for key in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
+        
+        return indices
+
+    elif cfg["self_train"]["loss_val_order"] is "descending":
+        logger.info(f"choosing the loss values in descending order")
+        #get the keys, here the keys are the loss values
+        keys_to_sort = argdict.keys()
+
+        #sort the keys in descending order
+        sorted_keys = sorted(keys_to_sort, reverse = True)
+
+        #choose batch_size of indices
+        indices = [argdict[key] for key in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
+        
+        return indices
+
+    elif cfg["self_train"]["loss_val_order"] is "random":
+        logger.info(f"choosing the loss values in random order")
+        #get the keys, here the keys are the loss values
+        keys_to_permute = argdict.keys()
+        keys_to_permute = list(keys_to_permute)
+
+        #randomly permute the keys
+        permuted_keys = np.random.shuffle(keys_to_permute)
+
+        #choose batch_size of indices
+        indices = [argdict[key] for key in permuted_keys[0 : cfg["self_train"]["batch_size"]]]
+        
+        return indices
 
 
     # #plot necessary graphs
@@ -197,4 +272,10 @@ if __name__ == "__main__":
     log_config = cfg["logging"]
     log_root_obj = CustomLogger(log_config)
     logger = log_root_obj.getLogger()
-    self_train(cfg,logger)
+    
+    
+    #self_train(cfg,logger)
+
+    for idx, i in enumerate(tqdm([100,43,2,67])):
+        logger.debug(f"{i}")
+        logger.debug(f"index: {idx}")

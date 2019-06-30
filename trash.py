@@ -1,6 +1,7 @@
 import torch
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
+from torch.utils.data import Subset
 
 if __name__ == "__main__":
     
@@ -27,13 +28,22 @@ if __name__ == "__main__":
     # train_set, val_set = Dataset(train_set), Dataset(val_set)
 
     
-    print((train_set.dataset))
-    print(train_set.dataset.data.size())
-    print(train_set.dataset.targets)
+    # print((train_set.dataset))
+    # print(train_set.dataset.data.size())
+    # print(train_set.dataset.targets)
     
-    print((val_set.dataset))
-    print(val_set.dataset.data.size())
-    print(val_set.dataset.targets)
+    # print((val_set.dataset))
+    # print(val_set.dataset.data.size())
+    # print(val_set.dataset.targets)
 
-    train_loader = torch.utils.data.DataLoader(val_set, batch_size = 100, shuffle = True, num_workers = 4)
-    print(len(val_set))
+    # train_loader = torch.utils.data.DataLoader(val_set, batch_size = 100, shuffle = True, num_workers = 4)
+    
+    print(f"val set size before: {len(val_set)}")
+    subs = Subset(val_set,[1,2,4])
+    print(len(subs))
+    print(f"val set size after: {len(val_set)}")
+
+    print(f"train set size before: {len(train_set)}")
+    train_set = torch.utils.data.ConcatDataset((train_set, subs))
+    print(f"train set size after: {len(train_set)}")
+

@@ -20,6 +20,7 @@ project_params:
 self_train:
   batch_size: 1000
   train_split : 0.2
+  loss_val_order: "ascending" #possible values are ["ascending","descending","random"]
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG
