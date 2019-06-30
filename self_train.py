@@ -164,7 +164,7 @@ def self_train(cfg, logger):
                 # break
             accuracy_avg = accuracy_total / (len(test_loader))
             self_train_running_test_acc.append(accuracy_avg)
-            # logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : average_accuracy: {accuracy_avg}")
+            logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : average_accuracy: {accuracy_avg}")
 
 
         #validate the model on val_set and choose cfg["self_train"]["batch_size"] images from it and
@@ -206,7 +206,7 @@ def self_train(cfg, logger):
             val_set = DiminishedSubset(val_set,chosen_indices)
 
     #ending self-training loop
-    logger.info(f"self-train testing accuracy over self-train epochs: {self_train_running_test_acc}")
+    logger.debug(f"self-train testing accuracy over self-train epochs: {self_train_running_test_acc}")
 
 def get_sample_indices(argdict, cfg, logger):
     if cfg["self_train"]["loss_val_order"] == "ascending":
