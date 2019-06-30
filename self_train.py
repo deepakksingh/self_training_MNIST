@@ -216,7 +216,7 @@ def get_sample_indices(argdict, cfg, logger):
 
         #choose batch_size of indices
         indices = [argdict[key] for key in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
-        logger.debug(f"{indices}")
+        # logger.debug(f"{indices}")
         return indices
 
     elif cfg["self_train"]["loss_val_order"] == "descending":
