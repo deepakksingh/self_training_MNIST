@@ -77,7 +77,7 @@ def self_train(cfg, logger):
     
     self_train_running_test_acc = []
 
-    for self_train_epoch in tqdm(range(self_train_epochs)):
+    for self_train_epoch in tqdm(range(self_train_epochs), desc = "self-train"):
 
 
         #assign data loaders
@@ -93,7 +93,7 @@ def self_train(cfg, logger):
         model.train()
         
         train_loss_value_list = []
-        for train_epoch in tqdm(range(cfg["hyperparameters"]["epochs"])):
+        for train_epoch in tqdm(range(cfg["hyperparameters"]["epochs"]), desc = "train"):
             #for each epoch
             overall_train_batch_loss = 0
 
@@ -141,7 +141,7 @@ def self_train(cfg, logger):
             accuracy_total = 0
 
             logger.info(f"current test_set size: {len(test_set)}")
-            for input, ground_truth_labels in tqdm(test_loader):
+            for input, ground_truth_labels in tqdm(test_loader, desc = "test"):
                 #for each batch 
                 input = input.to(device)
                 ground_truth_labels = ground_truth_labels.to(device)
@@ -172,7 +172,7 @@ def self_train(cfg, logger):
             validation_loss_val_list = []
             validation_loss_val_dict = {}
             #test on each validation image
-            for input, ground_truth_labels in tqdm(val_loader):
+            for input, ground_truth_labels in tqdm(val_loader, desc = "val"):
                 input = input.to(device)
                 ground_truth_labels = ground_truth_labels.to(device)
 
@@ -194,7 +194,7 @@ def self_train(cfg, logger):
             
             #get the indices which needs to be moved
             chosen_indices = get_sample_indices(validation_loss_val_dict, cfg, logger)
-            print(chosen_indices)
+            # print(chosen_indices)
             #augment the train_set with chosen instances of the val_set
             subset = torch.utils.data.Subset(val_set,chosen_indices)
             train_set = torch.utils.data.ConcatDataset((train_set, subset))
@@ -203,7 +203,7 @@ def self_train(cfg, logger):
             val_set = DiminishedSubset(val_set,chosen_indices)
 
     #ending self-training loop
-
+    logger.info(f"self-train testing accuracy over self-train epochs: {self_train_running_test_acc}")
 
 def get_sample_indices(argdict, cfg, logger):
     if cfg["self_train"]["loss_val_order"] == "ascending":
