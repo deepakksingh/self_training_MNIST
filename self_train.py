@@ -77,7 +77,7 @@ def self_train(cfg, logger):
     
     self_train_running_test_acc = []
 
-    for self_train_epoch in tqdm(range(self_train_epochs), desc = "self-train"):
+    for self_train_epoch in tqdm(range(self_train_epochs), desc = "self__train"):
 
 
         #assign data loaders
@@ -93,12 +93,12 @@ def self_train(cfg, logger):
         model.train()
         
         train_loss_value_list = []
-        for train_epoch in tqdm(range(cfg["hyperparameters"]["epochs"]), desc = "train"):
+        for train_epoch in tqdm(range(cfg["hyperparameters"]["epochs"]), desc = "train_epoch"):
             #for each epoch
             overall_train_batch_loss = 0
 
             logger.info(f"current train_set size: {len(train_set)}")
-            for input, ground_truth_labels in tqdm(train_loader):
+            for input, ground_truth_labels in tqdm(train_loader, desc = "train_batch"):
                 #for each batch 
                 input = input.to(device)
 
@@ -141,7 +141,7 @@ def self_train(cfg, logger):
             accuracy_total = 0
 
             logger.info(f"current test_set size: {len(test_set)}")
-            for input, ground_truth_labels in tqdm(test_loader, desc = "test"):
+            for input, ground_truth_labels in tqdm(test_loader, desc = "test__loop"):
                 #for each batch 
                 input = input.to(device)
                 ground_truth_labels = ground_truth_labels.to(device)
@@ -172,7 +172,7 @@ def self_train(cfg, logger):
             validation_loss_val_list = []
             validation_loss_val_dict = {}
             #test on each validation image
-            for input, ground_truth_labels in tqdm(val_loader, desc = "val"):
+            for input, ground_truth_labels in tqdm(val_loader, desc = "val_loop"):
                 input = input.to(device)
                 ground_truth_labels = ground_truth_labels.to(device)
 
