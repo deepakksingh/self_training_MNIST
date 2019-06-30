@@ -79,7 +79,10 @@ def self_train(cfg, logger):
 
     for self_train_epoch in tqdm(range(self_train_epochs), desc = "self__train"):
 
-
+        #log dataset sizes
+        logger.info(f"current train_set size: {len(train_set)}")
+        logger.info(f"current val_set size: {len(val_set)}")
+        logger.info(f"current test_set size: {len(test_set)}")
         #assign data loaders
         #prepare the data loader
         logger.info("preparing data loaders")
@@ -97,7 +100,7 @@ def self_train(cfg, logger):
             #for each epoch
             overall_train_batch_loss = 0
 
-            logger.info(f"current train_set size: {len(train_set)}")
+            # logger.info(f"current train_set size: {len(train_set)}")
             for input, ground_truth_labels in tqdm(train_loader, desc = "train_batch"):
                 #for each batch 
                 input = input.to(device)
@@ -140,7 +143,7 @@ def self_train(cfg, logger):
             
             accuracy_total = 0
 
-            logger.info(f"current test_set size: {len(test_set)}")
+            # logger.info(f"current test_set size: {len(test_set)}")
             for input, ground_truth_labels in tqdm(test_loader, desc = "test__loop"):
                 #for each batch 
                 input = input.to(device)
@@ -168,7 +171,7 @@ def self_train(cfg, logger):
         #move it to train_set by keeping the prediction as groundtruth label in the train_set
         model.eval()
         with torch.no_grad():
-            logger.info(f"current val_set size: {len(val_set)}")
+            # logger.info(f"current val_set size: {len(val_set)}")
             validation_loss_val_list = []
             validation_loss_val_dict = {}
             #test on each validation image
