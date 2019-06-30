@@ -9,6 +9,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
 import numpy as np
+from DiminishedSubset import DiminishedSubset
 
 '''
 TODO:
@@ -51,14 +52,6 @@ def self_train(cfg, logger):
     logger.info(f"initial val set size: {len(val_set)}")
     logger.info(f"initial test set size: {len(test_set)}")
 
-
-    #prepare the data loader
-    logger.info("preparing data loaders")
-    train_loader = torch.utils.data.DataLoader(train_set, batch_size = cfg["model_params"]["train_batch_size"], shuffle = True, num_workers = 4)
-    val_loader = torch.utils.data.DataLoader(val_set, batch_size = cfg["model_params"]["val_batch_size"], shuffle = True, num_workers = 4)
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size = cfg["model_params"]["test_batch_size"], shuffle = True, num_workers = 4)
-    logger.info("prepared data loaders")
-
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     processing_on = "cuda" if torch.cuda.is_available() else "cpu"
     logger.info("processing on: " + processing_on)
@@ -81,7 +74,21 @@ def self_train(cfg, logger):
     
     logger.info(f"number of self-train-epochs: {self_train_epochs}")
     logger.info("beginning self-training loop")
+    
+    self_train_running_test_acc = []
+
     for self_train_epoch in tqdm(range(self_train_epochs)):
+
+
+        #assign data loaders
+        #prepare the data loader
+        logger.info("preparing data loaders")
+        train_loader = torch.utils.data.DataLoader(train_set, batch_size = cfg["model_params"]["train_batch_size"], shuffle = True, num_workers = 4)
+        val_loader = torch.utils.data.DataLoader(val_set, batch_size = cfg["model_params"]["val_batch_size"], shuffle = True, num_workers = 4)
+        test_loader = torch.utils.data.DataLoader(test_set, batch_size = cfg["model_params"]["test_batch_size"], shuffle = True, num_workers = 4)
+        logger.info("prepared data loaders")
+        
+        
         #train the model on train_set
         model.train()
         
@@ -122,15 +129,15 @@ def self_train(cfg, logger):
             logger.debug(f"self_train_epoch: {self_train_epoch + 1}/{self_train_epochs} : train_epoch: {train_epoch + 1} : loss: {overall_train_batch_loss}")
             train_loss_value_list.append(overall_train_batch_loss)
 
-        # #save the model
-        # if cfg["project_params"]["to_save_model"]:
-        #     torch.save(model.state_dict(), cfg["project_params"]["model_save_location"])
+        #save the model
+        if cfg["project_params"]["to_save_model"]:
+            torch.save(model.state_dict(), cfg["project_params"]["model_save_location"])
 
 
         #test the model on test_set
         model.eval()
         with torch.no_grad():
-            self_train_running_test_acc = []
+            
             accuracy_total = 0
 
             logger.info(f"current test_set size: {len(test_set)}")
@@ -187,16 +194,19 @@ def self_train(cfg, logger):
             
             #get the indices which needs to be moved
             chosen_indices = get_sample_indices(validation_loss_val_dict, cfg, logger)
-
+            print(chosen_indices)
             #augment the train_set with chosen instances of the val_set
             subset = torch.utils.data.Subset(val_set,chosen_indices)
             train_set = torch.utils.data.ConcatDataset((train_set, subset))
+
+            #TODO: reduce the validation set
+            val_set = DiminishedSubset(val_set,chosen_indices)
 
     #ending self-training loop
 
 
 def get_sample_indices(argdict, cfg, logger):
-    if cfg["self_train"]["loss_val_order"] is "ascending":
+    if cfg["self_train"]["loss_val_order"] == "ascending":
         logger.info(f"choosing the loss values in ascending order")
         #get the keys, here the keys are the loss values
         keys_to_sort = argdict.keys()
@@ -206,10 +216,10 @@ def get_sample_indices(argdict, cfg, logger):
 
         #choose batch_size of indices
         indices = [argdict[key] for key in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
-        
+        logger.debug(f"{indices}")
         return indices
 
-    elif cfg["self_train"]["loss_val_order"] is "descending":
+    elif cfg["self_train"]["loss_val_order"] == "descending":
         logger.info(f"choosing the loss values in descending order")
         #get the keys, here the keys are the loss values
         keys_to_sort = argdict.keys()
@@ -222,7 +232,7 @@ def get_sample_indices(argdict, cfg, logger):
         
         return indices
 
-    elif cfg["self_train"]["loss_val_order"] is "random":
+    elif cfg["self_train"]["loss_val_order"] == "random":
         logger.info(f"choosing the loss values in random order")
         #get the keys, here the keys are the loss values
         keys_to_permute = argdict.keys()
@@ -274,8 +284,8 @@ if __name__ == "__main__":
     logger = log_root_obj.getLogger()
     
     
-    #self_train(cfg,logger)
+    self_train(cfg,logger)
 
-    for idx, i in enumerate(tqdm([100,43,2,67])):
-        logger.debug(f"{i}")
-        logger.debug(f"index: {idx}")
+    # for idx, i in enumerate(tqdm([100,43,2,67])):
+    #     logger.debug(f"{i}")
+    #     logger.debug(f"index: {idx}")

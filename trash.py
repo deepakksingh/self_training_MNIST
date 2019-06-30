@@ -2,6 +2,8 @@ import torch
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 from torch.utils.data import Subset
+from DiminishedSubset import DiminishedSubset
+import numpy as np
 
 if __name__ == "__main__":
     
@@ -15,7 +17,7 @@ if __name__ == "__main__":
     )
 
     initial_train_set = datasets.MNIST('./data', train = True, download = True, transform = transform)
-    print(initial_train_set.__dict__.keys())
+    
     train_split_percentage = 0.2
     initial_train_set_size = len(initial_train_set)
     
@@ -38,12 +40,19 @@ if __name__ == "__main__":
 
     # train_loader = torch.utils.data.DataLoader(val_set, batch_size = 100, shuffle = True, num_workers = 4)
     
-    print(f"val set size before: {len(val_set)}")
-    subs = Subset(val_set,[1,2,4])
-    print(len(subs))
-    print(f"val set size after: {len(val_set)}")
+    # print(f"val set size before: {len(val_set)}")
+    # subs = Subset(val_set,[1,2,4])
+    # print(len(subs))
+    # print(f"val set size after: {len(val_set)}")
 
-    print(f"train set size before: {len(train_set)}")
-    train_set = torch.utils.data.ConcatDataset((train_set, subs))
-    print(f"train set size after: {len(train_set)}")
+    # print(f"train set size before: {len(train_set)}")
+    # train_set = torch.utils.data.ConcatDataset((train_set, subs))
+    # print(f"train set size after: {len(train_set)}")
 
+    for i in range(5):
+        print("#"*6)
+        print(len(val_set))
+        indices_to_remove = list(np.arange(100))
+        val_set = DiminishedSubset(val_set, indices_to_remove)
+        print(len(val_set))
+        print("#"*6)
