@@ -3,6 +3,9 @@ model_params:
   output_features: 10 # 10 digits
   to_validate: True
   batch_size: 200
+  train_batch_size: 200
+  val_batch_size: 1
+  test_batch_size: 1
   keywithseqvals : [1,2,3,hello,"deepak"]
   boolFlag: False
 
@@ -13,8 +16,11 @@ hyperparameters:
 project_params:
   to_save_model: True
   model_save_location: "./saved_model.pth"
-  
 
+self_train:
+  batch_size: 1000
+  train_split : 0.2
+  loss_val_order: "ascending" #possible values are ["ascending","descending","random"]
 logging:
   filename: self_training_mnist.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG
