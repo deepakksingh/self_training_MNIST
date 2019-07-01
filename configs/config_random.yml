@@ -11,14 +11,14 @@ model_params:
 
 hyperparameters:
   learning_rate: 0.005
-  epochs: 1000
+  epochs: 500
 
 project_params:
   to_save_model: True
   model_save_location: "./saved_model_random.pth"
 
 self_train:
-  batch_size: 1000
+  batch_size: 2000
   train_split : 0.2
   loss_val_order: "random" #possible values are ["ascending","descending","random"]
 logging:

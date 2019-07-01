@@ -11,7 +11,7 @@ model_params:
 
 hyperparameters:
   learning_rate: 0.005
-  epochs: 1000
+  epochs: 250
 
 project_params:
   to_save_model: True
