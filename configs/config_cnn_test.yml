@@ -18,9 +18,9 @@ project_params:
   model_save_location: "./saved_model_cnn.pth"
 
 self_train:
-  batch_size: 2000
+  batch_size: 1000
   train_split : 0.2
-  loss_val_order: "ascending" #possible values are ["ascending","descending","random"]
+  loss_val_order: "random" #possible values are ["ascending","descending","random"]
 logging:
   filename: self_training_mnist_cnn.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG

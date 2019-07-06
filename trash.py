@@ -38,21 +38,21 @@ if __name__ == "__main__":
     # print(val_set.dataset.data.size())
     # print(val_set.dataset.targets)
 
-    # train_loader = torch.utils.data.DataLoader(val_set, batch_size = 100, shuffle = True, num_workers = 4)
+    # val_loader = torch.utils.data.DataLoader(val_set, batch_size = 100, shuffle = True, num_workers = 4)
     
-    # print(f"val set size before: {len(val_set)}")
-    # subs = Subset(val_set,[1,2,4])
-    # print(len(subs))
-    # print(f"val set size after: {len(val_set)}")
+    print(f"val set size before: {len(val_set)}")
+    subs = Subset(val_set,[1,2,4])
+    print(len(subs))
+    print(f"val set size after: {len(val_set)}")
 
-    # print(f"train set size before: {len(train_set)}")
-    # train_set = torch.utils.data.ConcatDataset((train_set, subs))
-    # print(f"train set size after: {len(train_set)}")
+    print(f"train set size before: {len(train_set)}")
+    train_set = torch.utils.data.ConcatDataset((train_set, subs))
+    print(f"train set size after: {len(train_set)}")
 
-    for i in range(5):
-        print("#"*6)
-        print(len(val_set))
-        indices_to_remove = list(np.arange(100))
-        val_set = DiminishedSubset(val_set, indices_to_remove)
-        print(len(val_set))
-        print("#"*6)
+    # for i in range(5):
+    #     print("#"*6)
+    #     print(len(val_set))
+    #     indices_to_remove = list(np.arange(100))
+    #     val_set = DiminishedSubset(val_set, indices_to_remove)
+    #     print(len(val_set))
+    #     print("#"*6)
