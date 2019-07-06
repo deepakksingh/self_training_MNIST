@@ -19,15 +19,15 @@ echo "dev conda environment activated"
 
 #self-training 1
 echo "training begins with ascending loss order"
-python self_train.py --config ./configs/config_ascending.yml
+python self_train_cnn.py --config ./configs/config_ascending.yml
 echo "training ends with ascending loss order"
 
 #self-training 2
 echo "training begins with descending loss order"
-python self_train.py --config ./configs/config_descending.yml
+python self_train_cnn.py --config ./configs/config_descending.yml
 echo "training ends with descending loss order"
 
 #self-training 3
 echo "training begins with random loss order"
-python self_train.py --config ./configs/config_random.yml
+python self_train_cnn.py --config ./configs/config_random.yml
 echo "training ends with random loss order"
