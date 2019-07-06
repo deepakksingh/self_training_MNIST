@@ -190,7 +190,11 @@ def self_train(cfg, logger):
             logger.debug(f"chosen indices length: {len(chosen_indices)}")
             
             #increase train_set indices
-            train_set.indices.extend(chosen_indices)
+            train_set_indices_clone = train_set.indices.clone()
+            train_set_indices_clone = train_set_indices_clone.numpy()
+            train_set_indices_clone = list(train_set_indices_clone)
+            train_set_indices_clone.extend(chosen_indices)
+            train_set.indices = torch.tensor(train_set_indices_clone)
             # logger.debug(f"before  {train_set.dataset.targets}")
             temp_before = train_set.dataset.targets.clone()
             # logger.debug(f"predlbl:{to_be_assigned_labels}")
