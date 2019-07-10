@@ -198,7 +198,7 @@ def self_train(cfg, logger):
             logger.debug(f"chosen indices length: {len(chosen_indices)}")
             
             #increase train_set indices
-            #TODO: reset below line
+            
             train_set_indices_clone = train_set.indices.clone()
             # train_set_indices_clone = train_set.indices.copy()
             train_set_indices_clone = train_set_indices_clone.numpy()
@@ -243,7 +243,7 @@ def get_sample_indices_new(val_tuple_list, cfg, logger):
         # logger.debug(f"type of val dict keys: {type(sorted_keys)}")
 
 
-        [[indices.append(x[0]), pred_lbls.append(x[2])] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
+        [[indices.append(int(x[1])), pred_lbls.append(int(x[2]))] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
         return indices, pred_lbls
 
     elif cfg["self_train"]["loss_val_order"] == "descending":
@@ -254,7 +254,7 @@ def get_sample_indices_new(val_tuple_list, cfg, logger):
         # logger.debug(f"type of val dict keys: {type(sorted_keys)}")
 
 
-        [[indices.append(x[1]), pred_lbls.append(x[2])] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
+        [[indices.append(int(x[1])), pred_lbls.append(int(x[2]))] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
         return indices, pred_lbls
 
     elif cfg["self_train"]["loss_val_order"] == "random":
@@ -265,7 +265,7 @@ def get_sample_indices_new(val_tuple_list, cfg, logger):
         # logger.debug(f"type of val dict keys: {type(val_tuple_list)}")
 
 
-        [[indices.append(x[1]), pred_lbls.append(x[2])] for x in val_tuple_list[0 : cfg["self_train"]["batch_size"]]]
+        [[indices.append(int(x[1])), pred_lbls.append(int(x[2]))] for x in val_tuple_list[0 : cfg["self_train"]["batch_size"]]]
         return indices, pred_lbls
 
 '''
