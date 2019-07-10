@@ -157,6 +157,7 @@ def self_train(cfg, logger):
         model.eval()
         with torch.no_grad():
             validation_loss_val_dict = {}
+            validation_loss_val_list = []
             #test on each validation image
 
             for input, ground_truth_labels, idx in tqdm(val_loader, desc = "val_loop   "):
@@ -173,24 +174,33 @@ def self_train(cfg, logger):
                 
                 #save the loss value
                 validation_loss_val = float(loss.cpu().item())
+                # logger.debug(f"validation loss: {validation_loss_val}")
                 
                 #idx is the index corresponding to the input and the label
                 index_pred_dict = {}
                 index_pred_dict["index"] = list(np.array(idx))[0]
                 index_pred_dict["predicted_value"] = max_predicted_labels.item()
                 # validation_loss_val_dict[validation_loss_val] = list(np.array(idx))[0]
-                validation_loss_val_dict[validation_loss_val] = index_pred_dict
+                # validation_loss_val_dict[str(validation_loss_val)] = index_pred_dict
+                # logger.critical(validation_loss_val)
+                # logger.critical(type(str(np.float128(validation_loss_val))))
+                # validation_loss_val_dict[str(np.float128(validation_loss_val))] = index_pred_dict
+                temp_tuple = (str(np.float128(validation_loss_val)), list(np.array(idx))[0], max_predicted_labels.item())
+                validation_loss_val_list.append(temp_tuple)
 
             
             #get the indices which needs to be moved
-            chosen_indices, to_be_assigned_labels = get_sample_indices(validation_loss_val_dict, cfg, logger)
+            # chosen_indices, to_be_assigned_labels = get_sample_indices(validation_loss_val_dict, cfg, logger)
+            chosen_indices, to_be_assigned_labels = get_sample_indices_new(validation_loss_val_list, cfg, logger)
             chosen_indices = list(np.array(chosen_indices))
             to_be_assigned_labels = list(np.array(to_be_assigned_labels))
 
             logger.debug(f"chosen indices length: {len(chosen_indices)}")
             
             #increase train_set indices
+            #TODO: reset below line
             train_set_indices_clone = train_set.indices.clone()
+            # train_set_indices_clone = train_set.indices.copy()
             train_set_indices_clone = train_set_indices_clone.numpy()
             train_set_indices_clone = list(train_set_indices_clone)
             train_set_indices_clone.extend(chosen_indices)
@@ -216,12 +226,57 @@ def self_train(cfg, logger):
     logger.debug(f"self-train testing accuracy over self-train epochs: {self_train_running_test_acc}")
 
 
+def last(n): 
+    return n[0] #sort it with loss value
+
+def get_sample_indices_new(val_tuple_list, cfg, logger):
+
+    indices = []
+    pred_lbls = []
+
+    if cfg["self_train"]["loss_val_order"] == "ascending":
+        logger.info(f"choosing the loss values in ascending order")
+        
+        sorted_keys = sorted(val_tuple_list, key = last)
+        
+        logger.debug(f"val dict keys length: {len(sorted_keys)}")
+        logger.debug(f"type of val dict keys: {type(sorted_keys)}")
+
+
+        [[indices.append(x[0]), pred_lbls.append(x[2])] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
+        return indices, pred_lbls
+
+    elif cfg["self_train"]["loss_val_order"] == "descending":
+        logger.info(f"choosing the loss values in descending order")
+        sorted_keys = sorted(val_tuple_list, key = last, reverse=True)
+        
+        logger.debug(f"val dict keys length: {len(sorted_keys)}")
+        logger.debug(f"type of val dict keys: {type(sorted_keys)}")
+
+
+        [[indices.append(x[1]), pred_lbls.append(x[2])] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
+        return indices, pred_lbls
+
+    elif cfg["self_train"]["loss_val_order"] == "random":
+        logger.info(f"choosing the loss values in random order")
+        np.random.shuffle(val_tuple_list)
+        
+        logger.debug(f"val dict keys length: {len(val_tuple_list)}")
+        logger.debug(f"type of val dict keys: {type(val_tuple_list)}")
+
+
+        [[indices.append(x[1]), pred_lbls.append(x[2])] for x in val_tuple_list[0 : cfg["self_train"]["batch_size"]]]
+        return indices, pred_lbls
+
+
 def get_sample_indices(argdict, cfg, logger):
     if cfg["self_train"]["loss_val_order"] == "ascending":
         logger.info(f"choosing the loss values in ascending order")
         #get the keys, here the keys are the loss values
         keys_to_sort = argdict.keys()
-
+        keys_to_sort = list(keys_to_sort)
+        logger.debug(f"val dict keys length: {len(keys_to_sort)}")
+        logger.debug(f"type of val dict keys: {type(keys_to_sort)}")
         #sort the keys in ascending order
         sorted_keys = sorted(keys_to_sort)
 
@@ -235,7 +290,9 @@ def get_sample_indices(argdict, cfg, logger):
         logger.info(f"choosing the loss values in descending order")
         #get the keys, here the keys are the loss values
         keys_to_sort = argdict.keys()
-
+        keys_to_sort = list(keys_to_sort)
+        logger.debug(f"val dict keys length: {len(keys_to_sort)}")
+        logger.debug(f"type of val dict keys: {type(keys_to_sort)}")
         #sort the keys in descending order
         sorted_keys = sorted(keys_to_sort, reverse = True)
 
@@ -249,7 +306,10 @@ def get_sample_indices(argdict, cfg, logger):
         #get the keys, here the keys are the loss values
         permute_keys = argdict.keys()
         permute_keys = list(permute_keys)
-
+        logger.debug(f"val dict keys length: {len(permute_keys)}")
+        logger.debug(f"type of val dict keys: {type(permute_keys)}")
+        
+        
         #randomly permute the keys
         np.random.shuffle(permute_keys)
 
