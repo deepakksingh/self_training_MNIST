@@ -18,14 +18,14 @@ source activate dev
 echo "dev conda environment activated"
 
 #self-training 1
-echo "training begins with ascending loss order"
-python self_train_cnn.py --config ./configs/config_cnn_ascending.yml
-echo "training ends with ascending loss order"
+#echo "training begins with ascending loss order"
+#python self_train_cnn.py --config ./configs/config_cnn_ascending.yml
+#echo "training ends with ascending loss order"
 
 #self-training 2
-echo "training begins with descending loss order"
-python self_train_cnn.py --config ./configs/config_cnn_descending.yml
-echo "training ends with descending loss order"
+#echo "training begins with descending loss order"
+#python self_train_cnn.py --config ./configs/config_cnn_descending.yml
+#echo "training ends with descending loss order"
 
 #self-training 3
 echo "training begins with random loss order"
