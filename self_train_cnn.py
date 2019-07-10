@@ -227,7 +227,7 @@ def self_train(cfg, logger):
 
 
 def last(n): 
-    return n[0] #sort it with loss value
+    return n[0] #sort it with loss value i.e. the first value
 
 def get_sample_indices_new(val_tuple_list, cfg, logger):
 
@@ -239,8 +239,8 @@ def get_sample_indices_new(val_tuple_list, cfg, logger):
         
         sorted_keys = sorted(val_tuple_list, key = last)
         
-        logger.debug(f"val dict keys length: {len(sorted_keys)}")
-        logger.debug(f"type of val dict keys: {type(sorted_keys)}")
+        # logger.debug(f"val dict keys length: {len(sorted_keys)}")
+        # logger.debug(f"type of val dict keys: {type(sorted_keys)}")
 
 
         [[indices.append(x[0]), pred_lbls.append(x[2])] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
@@ -250,8 +250,8 @@ def get_sample_indices_new(val_tuple_list, cfg, logger):
         logger.info(f"choosing the loss values in descending order")
         sorted_keys = sorted(val_tuple_list, key = last, reverse=True)
         
-        logger.debug(f"val dict keys length: {len(sorted_keys)}")
-        logger.debug(f"type of val dict keys: {type(sorted_keys)}")
+        # logger.debug(f"val dict keys length: {len(sorted_keys)}")
+        # logger.debug(f"type of val dict keys: {type(sorted_keys)}")
 
 
         [[indices.append(x[1]), pred_lbls.append(x[2])] for x in sorted_keys[0 : cfg["self_train"]["batch_size"]]]
@@ -261,14 +261,14 @@ def get_sample_indices_new(val_tuple_list, cfg, logger):
         logger.info(f"choosing the loss values in random order")
         np.random.shuffle(val_tuple_list)
         
-        logger.debug(f"val dict keys length: {len(val_tuple_list)}")
-        logger.debug(f"type of val dict keys: {type(val_tuple_list)}")
+        # logger.debug(f"val dict keys length: {len(val_tuple_list)}")
+        # logger.debug(f"type of val dict keys: {type(val_tuple_list)}")
 
 
         [[indices.append(x[1]), pred_lbls.append(x[2])] for x in val_tuple_list[0 : cfg["self_train"]["batch_size"]]]
         return indices, pred_lbls
 
-
+'''
 def get_sample_indices(argdict, cfg, logger):
     if cfg["self_train"]["loss_val_order"] == "ascending":
         logger.info(f"choosing the loss values in ascending order")
@@ -317,23 +317,7 @@ def get_sample_indices(argdict, cfg, logger):
         indices = [argdict[key]["index"] for key in permute_keys[0 : cfg["self_train"]["batch_size"]]]
         pred_lbls = [argdict[key]["predicted_value"] for key in permute_keys[0 : cfg["self_train"]["batch_size"]]]
         return indices, pred_lbls
-
-
-    # #plot necessary graphs
-    # fig, ax = plt.subplots()
-    # x_axis = list(torch.arange(1, len(train_loss_value_list) + 1).numpy())
-    # line1, = ax.plot(x_axis, train_loss_value_list , 
-    #             color='r',
-    #             label='loss')
-
-    # plt.xticks(x_axis)
-    # plt.xlabel("Epochs")
-    # plt.ylabel("Loss")
-    # ax.legend()
-    # plt.plot()
-    # plt.savefig("epoch_vs_loss.png")
-    # logger.info("saved the epoch_vs_loss image")
-
+'''
 
 if __name__ == "__main__":
     
