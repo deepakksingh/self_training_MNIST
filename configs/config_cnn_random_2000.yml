@@ -1,0 +1,29 @@
+model_params:
+  num_of_input_channels: 1 #MNIST dataset sample size (28 x 28)
+  num_of_output_labels: 10 # 10 digits
+  to_validate: True
+  batch_size: 200
+  train_batch_size: 200
+  val_batch_size: 1
+  test_batch_size: 1
+  keywithseqvals : [1,2,3,hello,"deepak"]
+  boolFlag: False
+
+hyperparameters:
+  learning_rate: 0.005
+  epochs: 1
+
+project_params:
+  to_save_model: False
+  model_save_location: "./saved_model_cnn_random.pth"
+
+self_train:
+  batch_size: 2000
+  train_split : 0.2
+  loss_val_order: "random" #possible values are ["ascending","descending","random"]
+logging:
+  filename: self_training_mnist_cnn_random.log #optional and defaults to log.log
+  level: "DEBUG" #optional and defaults to DEBUG
+  format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s"
+  #format: "%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
+  #format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"
