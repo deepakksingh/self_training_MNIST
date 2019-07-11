@@ -18,8 +18,8 @@ project_params:
   model_save_location: "./saved_model_cnn_baseline.pth"
 
 base_line:
-  batch_size: 5000
-  train_split: 0.5
+  batch_size: 1000
+  train_split: 0.2
 
 logging:
   filename: baseline_mnist_cnn.log #optional and defaults to log.log

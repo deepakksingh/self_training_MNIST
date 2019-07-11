@@ -19,7 +19,7 @@ project_params:
 
 base_line:
   batch_size: 5000
-  train_split: 0.5
+  train_split: 0.2
 
 logging:
   filename: baseline_mnist_cnn.log #optional and defaults to log.log
