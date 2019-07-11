@@ -17,17 +17,49 @@ module load cudnn/7-cuda-9.0
 source activate dev
 echo "dev conda environment activated"
 
-#self-training 1
-#echo "training begins with ascending loss order"
-#python self_train_cnn.py --config ./configs/config_cnn_ascending.yml
-#echo "training ends with ascending loss order"
+# self-training 1
+echo "training begins with ascending loss order"
+python self_train_cnn.py --config ./configs/config_cnn_ascending_5000.yml
+echo "training ends with ascending loss order"
 
-#self-training 2
-#echo "training begins with descending loss order"
-#python self_train_cnn.py --config ./configs/config_cnn_descending.yml
-#echo "training ends with descending loss order"
+# self-training 2
+echo "training begins with descending loss order"
+python self_train_cnn.py --config ./configs/config_cnn_descending_5000.yml
+echo "training ends with descending loss order"
 
 #self-training 3
 echo "training begins with random loss order"
-python self_train_cnn.py --config ./configs/config_cnn_random.yml
+python self_train_cnn.py --config ./configs/config_cnn_random_5000.yml
 echo "training ends with random loss order"
+
+
+# self-training 1
+echo "training begins with ascending loss order"
+python self_train_cnn.py --config ./configs/config_cnn_ascending_2000.yml
+echo "training ends with ascending loss order"
+
+# self-training 2
+echo "training begins with descending loss order"
+python self_train_cnn.py --config ./configs/config_cnn_descending_2000.yml
+echo "training ends with descending loss order"
+
+#self-training 3
+echo "training begins with random loss order"
+python self_train_cnn.py --config ./configs/config_cnn_random_2000.yml
+echo "training ends with random loss order"
+
+# self-training 1
+echo "training begins with ascending loss order"
+python self_train_cnn.py --config ./configs/config_cnn_ascending_1000.yml
+echo "training ends with ascending loss order"
+
+# self-training 2
+echo "training begins with descending loss order"
+python self_train_cnn.py --config ./configs/config_cnn_descending_1000.yml
+echo "training ends with descending loss order"
+
+#self-training 3
+echo "training begins with random loss order"
+python self_train_cnn.py --config ./configs/config_cnn_random_1000.yml
+echo "training ends with random loss order"
+
