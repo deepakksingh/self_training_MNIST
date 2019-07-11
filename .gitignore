@@ -1,7 +1,6 @@
 *.log
 *.py[cod]
 *.out
-*.png
 __pycache__/
 
 #we are saving the model as *.pth. ADD *.pth based on requirement.
