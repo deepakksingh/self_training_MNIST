@@ -12,10 +12,7 @@ import numpy as np
 from custom_mnist import CustomMNIST
 
 
-'''
-TODO:
-        add self-training wrapper
-'''
+
 def self_train(cfg, logger):
     '''contains code to self-train'''
 
