@@ -11,18 +11,18 @@ model_params:
 
 hyperparameters:
   learning_rate: 0.005
-  epochs: 2
+  epochs: 1
 
 project_params:
-  to_save_model: True
-  model_save_location: "./saved_model_cnn_descending.pth"
+  to_save_model: False
+  model_save_location: "./saved_model_cnn_ascending.pth"
 
 self_train:
-  batch_size: 5000
+  batch_size: 2000
   train_split : 0.2
-  loss_val_order: "descending" #possible values are ["ascending","descending","random"]
+  loss_val_order: "ascending" #possible values are ["ascending","descending","random"]
 logging:
-  filename: self_training_mnist_cnn_descending.log #optional and defaults to log.log
+  filename: self_training_mnist_cnn_ascending.log #optional and defaults to log.log
   level: "DEBUG" #optional and defaults to DEBUG
   format: "%(asctime)s:%(levelname)s:%(filename)s:%(message)s"
   #format: "%(levelname)s:%(filename)s:%(message)s at line %(lineno)s"

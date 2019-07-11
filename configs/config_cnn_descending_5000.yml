@@ -11,10 +11,10 @@ model_params:
 
 hyperparameters:
   learning_rate: 0.005
-  epochs: 2
+  epochs: 1
 
 project_params:
-  to_save_model: True
+  to_save_model: False
   model_save_location: "./saved_model_cnn_descending.pth"
 
 self_train:

@@ -62,3 +62,4 @@ echo "training ends with descending loss order"
 echo "training begins with random loss order"
 python self_train_cnn.py --config ./configs/config_cnn_random_1000.yml
 echo "training ends with random loss order"
+
