@@ -53,85 +53,121 @@ rand_b1k_e1 = [0.5106, 0.6224, 0.7061, 0.8128, 0.8492, 0.8702, 0.8821, 0.8893, 0
 base_b1k_e1 = [0.4163, 0.7134, 0.8049, 0.866, 0.883, 0.9017, 0.9133, 0.9179, 0.9227, 0.9308, 0.9336, 0.9405, 0.9434, 0.9467, 0.9508, 0.954, 0.9562, 0.9595, 0.9614, 0.9619, 0.9643, 0.9656, 0.9678, 0.9698, 0.9715, 0.9727, 0.9722, 0.9734, 0.9755, 0.9754, 0.977, 0.9775, 0.9789, 0.9791, 0.9788, 0.9788, 0.9806, 0.9818, 0.9826, 0.9827, 0.983, 0.9826, 0.9837, 0.9833, 0.9835, 0.9826, 0.9836, 0.9851]
 batch_1k_x_axis = list(np.arange(0,len(asce_b1k_e1))*BATCH_SIZE_1K + INITIAL_TRAIN_SET_SIZE)
 
+# batch_5k_x_labels = list(np.arange(12000,60000,10000))
+# print(batch_5k_x_labels)
+
 #first plot
-fig, ax = plt.subplots()
-line1, = ax.plot(batch_5k_x_axis, asce_b5k_e10 , marker='o', color='b',label='ASC')
-line2, = ax.plot(batch_5k_x_axis, desc_b5k_e10 , marker='^', color='g',label='DESC')
-line3, = ax.plot(batch_5k_x_axis, rand_b5k_e10 , marker='s', color='r',label='RAND')
-line4, = ax.plot(batch_5k_x_axis, base_b5k_e10 , marker='o', color='k',label='BASE')
-plt.xticks(batch_5k_x_axis, rotation="vertical")
-plt.xlabel("Number of training images")
-plt.ylabel("Accuracy over 10k images")
-ax.legend()
-plt.savefig("e10_b5k.png")
+fix, (ax1,ax2) = plt.subplots(1, 2)
+line1, = ax1.plot(batch_5k_x_axis, asce_b5k_e10 , marker='o', color='b',label='ASC')
+line2, = ax1.plot(batch_5k_x_axis, desc_b5k_e10 , marker='^', color='g',label='DESC')
+line3, = ax1.plot(batch_5k_x_axis, rand_b5k_e10 , marker='s', color='r',label='RAND')
+line4, = ax1.plot(batch_5k_x_axis, base_b5k_e10 , marker='o', color='k',label='BASE')
+
+ax1.set_title("Model trained on 10 epoch(s) with batch size of 5k")
+ax1.set_xticklabels(batch_5k_x_axis, rotation="vertical")
+ax1.set_xlabel("Number of training images")
+ax1.set_ylabel("Accuracy on 10k test images")
+ax1.legend()
+ax1.grid()
+
+
+line1, = ax2.plot(batch_5k_x_axis, asce_b5k_e1 , marker='o', color='b',label='ASC')
+line2, = ax2.plot(batch_5k_x_axis, desc_b5k_e1 , marker='^', color='g',label='DESC')
+line3, = ax2.plot(batch_5k_x_axis, rand_b5k_e1 , marker='s', color='r',label='RAND')
+line4, = ax2.plot(batch_5k_x_axis, base_b5k_e1 , marker='o', color='k',label='BASE')
+
+ax2.set_title("Model trained on 1 epoch(s) with batch size of 5k")
+ax2.set_xticklabels(batch_5k_x_axis, rotation="vertical")
+ax2.set_xlabel("Number of training images")
+ax2.set_ylabel("Accuracy on 10k test images")
+ax2.legend()
+ax2.grid()
+
+plt.subplots_adjust(
+    top=0.948,
+    bottom=0.131,
+    left=0.055,
+    right=0.986,
+    hspace=0.2,
+    wspace=0.116
+)
+# plt.savefig("b5k_combined.png", dpi=500)
+
 plt.show()
 
 #second plot
-fig, ax = plt.subplots()
-line1, = ax.plot(batch_2k_x_axis, asce_b2k_e10 , marker='o', color='b',label='ASC')
-line2, = ax.plot(batch_2k_x_axis, desc_b2k_e10 , marker='^', color='g',label='DESC')
-line3, = ax.plot(batch_2k_x_axis, rand_b2k_e10 , marker='s', color='r',label='RAND')
-line4, = ax.plot(batch_2k_x_axis, base_b2k_e10 , marker='o', color='k',label='BASE')
+fix, (ax1,ax2) = plt.subplots(1, 2)
+line1, = ax1.plot(batch_2k_x_axis, asce_b2k_e10 , marker='o', color='b',label='ASC')
+line2, = ax1.plot(batch_2k_x_axis, desc_b2k_e10 , marker='^', color='g',label='DESC')
+line3, = ax1.plot(batch_2k_x_axis, rand_b2k_e10 , marker='s', color='r',label='RAND')
+line4, = ax1.plot(batch_2k_x_axis, base_b2k_e10 , marker='o', color='k',label='BASE')
 
-plt.xticks(batch_2k_x_axis, rotation="vertical")
-plt.xlabel("Number of training images")
-plt.ylabel("Accuracy over 10k test images")
-ax.legend()
-plt.savefig("e10_b2k.png")
+ax1.set_title("Model trained on 10 epoch(s) with batch size of 2k")
+ax1.set_xticklabels(batch_2k_x_axis, rotation="vertical")
+ax1.set_xlabel("Number of training images")
+ax1.set_ylabel("Accuracy on 10k test images")
+ax1.legend()
+ax1.grid()
+
+
+line1, = ax2.plot(batch_2k_x_axis, asce_b2k_e1 , marker='o', color='b',label='ASC')
+line2, = ax2.plot(batch_2k_x_axis, desc_b2k_e1 , marker='^', color='g',label='DESC')
+line3, = ax2.plot(batch_2k_x_axis, rand_b2k_e1 , marker='s', color='r',label='RAND')
+line4, = ax2.plot(batch_2k_x_axis, base_b2k_e1 , marker='o', color='k',label='BASE')
+
+ax2.set_title("Model trained on 1 epoch(s) with batch size of 2k")
+ax2.set_xticklabels(batch_2k_x_axis, rotation="vertical")
+ax2.set_xlabel("Number of training images")
+ax2.set_ylabel("Accuracy on 10k test images")
+ax2.legend()
+ax2.grid()
+
+plt.subplots_adjust(
+    top=0.948,
+    bottom=0.131,
+    left=0.055,
+    right=0.986,
+    hspace=0.2,
+    wspace=0.116
+)
+# plt.savefig("b2k_combined.png", dpi=500)
 plt.show()
 
 #third plot
-fig, ax = plt.subplots()
-line1, = ax.plot(batch_1k_x_axis, asce_b1k_e10 , marker='o', color='b',label='ASC')
-line2, = ax.plot(batch_1k_x_axis, desc_b1k_e10 , marker='^', color='g',label='DESC')
-line3, = ax.plot(batch_1k_x_axis, rand_b1k_e10 , marker='s', color='r',label='RAND')
-line4, = ax.plot(batch_1k_x_axis, base_b1k_e10 , marker='o', color='k',label='BASE')
+fix, (ax1,ax2) = plt.subplots(1, 2)
+line1, = ax1.plot(batch_1k_x_axis, asce_b1k_e10 , marker='o', color='b',label='ASC')
+line2, = ax1.plot(batch_1k_x_axis, desc_b1k_e10 , marker='^', color='g',label='DESC')
+line3, = ax1.plot(batch_1k_x_axis, rand_b1k_e10 , marker='s', color='r',label='RAND')
+line4, = ax1.plot(batch_1k_x_axis, base_b1k_e10 , marker='o', color='k',label='BASE')
 
-plt.xticks(batch_1k_x_axis, rotation="vertical")
-plt.xlabel("Number of training images")
-plt.ylabel("Accuracy over 10k test images")
-ax.legend()
-plt.savefig("e10_b1k.png")
-plt.show()
+ax1.set_title("Model trained on 10 epoch(s) with batch size of 1k")
+ax1.set_xticklabels(batch_1k_x_axis, rotation="vertical")
+ax1.set_xlabel("Number of training images")
+ax1.set_ylabel("Accuracy on 10k test images")
+ax1.legend()
+ax1.grid()
 
-#fourth plot
-fig, ax = plt.subplots()
-line1, = ax.plot(batch_5k_x_axis, asce_b5k_e1 , marker='o', color='b',label='ASC')
-line2, = ax.plot(batch_5k_x_axis, desc_b5k_e1 , marker='^', color='g',label='DESC')
-line3, = ax.plot(batch_5k_x_axis, rand_b5k_e1 , marker='s', color='r',label='RAND')
-line4, = ax.plot(batch_5k_x_axis, base_b5k_e1 , marker='o', color='k',label='BASE')
-plt.xticks(batch_5k_x_axis, rotation="vertical")
-plt.xlabel("Number of training images")
-plt.ylabel("Accuracy over 10k images")
-ax.legend()
-plt.savefig("e1_b5k.png")
-plt.show()
 
-#fifth plot
-fig, ax = plt.subplots()
-line1, = ax.plot(batch_2k_x_axis, asce_b2k_e1 , marker='o', color='b',label='ASC')
-line2, = ax.plot(batch_2k_x_axis, desc_b2k_e1 , marker='^', color='g',label='DESC')
-line3, = ax.plot(batch_2k_x_axis, rand_b2k_e1 , marker='s', color='r',label='RAND')
-line4, = ax.plot(batch_2k_x_axis, base_b2k_e1 , marker='o', color='k',label='BASE')
+line1, = ax2.plot(batch_1k_x_axis, asce_b1k_e1 , marker='o', color='b',label='ASC')
+line2, = ax2.plot(batch_1k_x_axis, desc_b1k_e1 , marker='^', color='g',label='DESC')
+line3, = ax2.plot(batch_1k_x_axis, rand_b1k_e1 , marker='s', color='r',label='RAND')
+line4, = ax2.plot(batch_1k_x_axis, base_b1k_e1 , marker='o', color='k',label='BASE')
 
-plt.xticks(batch_2k_x_axis, rotation="vertical")
-plt.xlabel("Number of training images")
-plt.ylabel("Accuracy over 10k test images")
-ax.legend()
-plt.savefig("e1_b2k.png")
-plt.show()
+ax2.set_title("Model trained on 1 epoch(s) with batch size of 1k")
+ax2.set_xticklabels(batch_1k_x_axis, rotation="vertical")
+ax2.set_xlabel("Number of training images")
+ax2.set_ylabel("Accuracy on 10k test images")
+ax2.legend()
+ax2.grid()
 
-#sixth plot
-fig, ax = plt.subplots()
-line1, = ax.plot(batch_1k_x_axis, asce_b1k_e1 , marker='o', color='b',label='ASC')
-line2, = ax.plot(batch_1k_x_axis, desc_b1k_e1 , marker='^', color='g',label='DESC')
-line3, = ax.plot(batch_1k_x_axis, rand_b1k_e1 , marker='s', color='r',label='RAND')
-line4, = ax.plot(batch_1k_x_axis, base_b1k_e1 , marker='o', color='k',label='BASE')
-
-plt.xticks(batch_1k_x_axis, rotation="vertical")
-plt.xlabel("Number of training images")
-plt.ylabel("Accuracy over 10k test images")
-ax.legend()
-plt.savefig("e1_b1k.png")
+plt.subplots_adjust(
+    top=0.948,
+    bottom=0.131,
+    left=0.055,
+    right=0.986,
+    hspace=0.2,
+    wspace=0.116   
+)
+# plt.savefig("b1k_combined.png", dpi=500)
 plt.show()
 
