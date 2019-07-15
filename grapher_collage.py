@@ -57,13 +57,15 @@ batch_1k_x_axis = list(np.arange(0,len(asce_b1k_e1))*BATCH_SIZE_1K + INITIAL_TRA
 # print(batch_5k_x_labels)
 
 #first plot
-fix, (ax1,ax2) = plt.subplots(1, 2)
-line1, = ax1.plot(batch_5k_x_axis, asce_b5k_e10 , marker='o', color='b',label='ASC')
-line2, = ax1.plot(batch_5k_x_axis, desc_b5k_e10 , marker='^', color='g',label='DESC')
+fig, (ax1,ax2) = plt.subplots(1, 2)
+fig.suptitle("Batch size of 5k",fontsize=14)
+
+line1, = ax1.plot(batch_5k_x_axis, asce_b5k_e10 , marker='o', color='b',label='ASC', linewidth=0.5, markersize=3.0)
+line2, = ax1.plot(batch_5k_x_axis, desc_b5k_e10 , marker='^', color='g',label='DESC', linewidth=0.5, markersize=3.0)
 line3, = ax1.plot(batch_5k_x_axis, rand_b5k_e10 , marker='s', color='r',label='RAND')
 line4, = ax1.plot(batch_5k_x_axis, base_b5k_e10 , marker='o', color='k',label='BASE')
 
-ax1.set_title("Model trained on 10 epoch(s) with batch size of 5k")
+ax1.set_title("Model trained for 10 epoch(s) for each self-training cycle")
 ax1.set_xticklabels(batch_5k_x_axis, rotation="vertical")
 ax1.set_xlabel("Number of training images")
 ax1.set_ylabel("Accuracy on 10k test images")
@@ -71,12 +73,12 @@ ax1.legend()
 ax1.grid()
 
 
-line1, = ax2.plot(batch_5k_x_axis, asce_b5k_e1 , marker='o', color='b',label='ASC')
-line2, = ax2.plot(batch_5k_x_axis, desc_b5k_e1 , marker='^', color='g',label='DESC')
+line1, = ax2.plot(batch_5k_x_axis, asce_b5k_e1 , marker='o', color='b',label='ASC', linewidth=0.5, markersize=3.0)
+line2, = ax2.plot(batch_5k_x_axis, desc_b5k_e1 , marker='^', color='g',label='DESC', linewidth=0.5, markersize=3.0)
 line3, = ax2.plot(batch_5k_x_axis, rand_b5k_e1 , marker='s', color='r',label='RAND')
 line4, = ax2.plot(batch_5k_x_axis, base_b5k_e1 , marker='o', color='k',label='BASE')
 
-ax2.set_title("Model trained on 1 epoch(s) with batch size of 5k")
+ax2.set_title("Model trained for 1 epoch(s) for each self-training cycle")
 ax2.set_xticklabels(batch_5k_x_axis, rotation="vertical")
 ax2.set_xlabel("Number of training images")
 ax2.set_ylabel("Accuracy on 10k test images")
@@ -84,7 +86,7 @@ ax2.legend()
 ax2.grid()
 
 plt.subplots_adjust(
-    top=0.948,
+    top=0.918,
     bottom=0.131,
     left=0.055,
     right=0.986,
@@ -96,13 +98,14 @@ plt.subplots_adjust(
 plt.show()
 
 #second plot
-fix, (ax1,ax2) = plt.subplots(1, 2)
-line1, = ax1.plot(batch_2k_x_axis, asce_b2k_e10 , marker='o', color='b',label='ASC')
-line2, = ax1.plot(batch_2k_x_axis, desc_b2k_e10 , marker='^', color='g',label='DESC')
+fig, (ax1,ax2) = plt.subplots(1, 2)
+fig.suptitle("Batch size of 2k",fontsize=14)
+line1, = ax1.plot(batch_2k_x_axis, asce_b2k_e10 , marker='o', color='b',label='ASC', linewidth=0.5, markersize=3.0)
+line2, = ax1.plot(batch_2k_x_axis, desc_b2k_e10 , marker='^', color='g',label='DESC', linewidth=0.5, markersize=3.0)
 line3, = ax1.plot(batch_2k_x_axis, rand_b2k_e10 , marker='s', color='r',label='RAND')
 line4, = ax1.plot(batch_2k_x_axis, base_b2k_e10 , marker='o', color='k',label='BASE')
 
-ax1.set_title("Model trained on 10 epoch(s) with batch size of 2k")
+ax1.set_title("Model trained for 10 epoch(s) for each self-training cycle")
 ax1.set_xticklabels(batch_2k_x_axis, rotation="vertical")
 ax1.set_xlabel("Number of training images")
 ax1.set_ylabel("Accuracy on 10k test images")
@@ -110,12 +113,12 @@ ax1.legend()
 ax1.grid()
 
 
-line1, = ax2.plot(batch_2k_x_axis, asce_b2k_e1 , marker='o', color='b',label='ASC')
-line2, = ax2.plot(batch_2k_x_axis, desc_b2k_e1 , marker='^', color='g',label='DESC')
+line1, = ax2.plot(batch_2k_x_axis, asce_b2k_e1 , marker='o', color='b',label='ASC', linewidth=0.5, markersize=3.0)
+line2, = ax2.plot(batch_2k_x_axis, desc_b2k_e1 , marker='^', color='g',label='DESC', linewidth=0.5, markersize=3.0)
 line3, = ax2.plot(batch_2k_x_axis, rand_b2k_e1 , marker='s', color='r',label='RAND')
 line4, = ax2.plot(batch_2k_x_axis, base_b2k_e1 , marker='o', color='k',label='BASE')
 
-ax2.set_title("Model trained on 1 epoch(s) with batch size of 2k")
+ax2.set_title("Model trained for 1 epoch(s) for each self-training cycle")
 ax2.set_xticklabels(batch_2k_x_axis, rotation="vertical")
 ax2.set_xlabel("Number of training images")
 ax2.set_ylabel("Accuracy on 10k test images")
@@ -123,7 +126,7 @@ ax2.legend()
 ax2.grid()
 
 plt.subplots_adjust(
-    top=0.948,
+    top=0.918,
     bottom=0.131,
     left=0.055,
     right=0.986,
@@ -134,13 +137,14 @@ plt.subplots_adjust(
 plt.show()
 
 #third plot
-fix, (ax1,ax2) = plt.subplots(1, 2)
-line1, = ax1.plot(batch_1k_x_axis, asce_b1k_e10 , marker='o', color='b',label='ASC')
-line2, = ax1.plot(batch_1k_x_axis, desc_b1k_e10 , marker='^', color='g',label='DESC')
+fig, (ax1,ax2) = plt.subplots(1, 2)
+fig.suptitle("Batch size of 1k",fontsize=14)
+line1, = ax1.plot(batch_1k_x_axis, asce_b1k_e10 , marker='o', color='b',label='ASC', linewidth=0.5, markersize=3.0)
+line2, = ax1.plot(batch_1k_x_axis, desc_b1k_e10 , marker='^', color='g',label='DESC', linewidth=0.5, markersize=3.0)
 line3, = ax1.plot(batch_1k_x_axis, rand_b1k_e10 , marker='s', color='r',label='RAND')
 line4, = ax1.plot(batch_1k_x_axis, base_b1k_e10 , marker='o', color='k',label='BASE')
 
-ax1.set_title("Model trained on 10 epoch(s) with batch size of 1k")
+ax1.set_title("Model trained for 10 epoch(s) for each self-training cycle")
 ax1.set_xticklabels(batch_1k_x_axis, rotation="vertical")
 ax1.set_xlabel("Number of training images")
 ax1.set_ylabel("Accuracy on 10k test images")
@@ -148,12 +152,12 @@ ax1.legend()
 ax1.grid()
 
 
-line1, = ax2.plot(batch_1k_x_axis, asce_b1k_e1 , marker='o', color='b',label='ASC')
-line2, = ax2.plot(batch_1k_x_axis, desc_b1k_e1 , marker='^', color='g',label='DESC')
+line1, = ax2.plot(batch_1k_x_axis, asce_b1k_e1 , marker='o', color='b',label='ASC', linewidth=0.5, markersize=3.0)
+line2, = ax2.plot(batch_1k_x_axis, desc_b1k_e1 , marker='^', color='g',label='DESC', linewidth=0.5, markersize=3.0)
 line3, = ax2.plot(batch_1k_x_axis, rand_b1k_e1 , marker='s', color='r',label='RAND')
 line4, = ax2.plot(batch_1k_x_axis, base_b1k_e1 , marker='o', color='k',label='BASE')
 
-ax2.set_title("Model trained on 1 epoch(s) with batch size of 1k")
+ax2.set_title("Model trained for 1 epoch(s) for each self-training cycle")
 ax2.set_xticklabels(batch_1k_x_axis, rotation="vertical")
 ax2.set_xlabel("Number of training images")
 ax2.set_ylabel("Accuracy on 10k test images")
@@ -161,12 +165,12 @@ ax2.legend()
 ax2.grid()
 
 plt.subplots_adjust(
-    top=0.948,
+    top=0.918,
     bottom=0.131,
     left=0.055,
     right=0.986,
     hspace=0.2,
-    wspace=0.116   
+    wspace=0.116
 )
 # plt.savefig("b1k_combined.png", dpi=500)
 plt.show()
